@@ -10,4 +10,6 @@ df = pd.read_csv("50_Startups.csv")
 X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values
 
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough')
+X = np.array(ct.fit_transform(X))
 
